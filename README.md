@@ -5,34 +5,32 @@ TITLE CARD:
                                   "ScreenPy"
 TITLE DISAPPEARS.
                                                                       FADE IN:
-INT. DOCUMENTATION - NIGHT
+INT. DOCUMENTATION - UNKNOWN TIME
 
-Illuminated by the computer's glow, AUDIENCE sits reading the documentation
-for a Python library they haven't seen before. AUDIENCE is visibly startled
-as a dulcet voice begins to speak.
+A recording room door opens and AUDIENCE peeks inside. AUDIENCE quietly steps
+over cords and around chairs, approaching the switchboard. NARRATOR quietly
+resumes their guidance.
 
                               NARRATOR (V.O.)
-            ScreenPy is a library that provides the base for an
-            automated test suite using Screenplay Pattern.
+            Ah, this is one of the Adapters for my microphone. This
+            one sends them to an Allure report.
 
                               AUDIENCE
-            Wha- who are you? Where are you? And... what is
-            Screenplay Pattern?!
+                              (hushed)
+            You mean you have a literal microphone, and that's how
+            you're talking to me? I thought I had been stingy to
+            some tester and you were the first of three spirits.
 
                               NARRATOR (V.O.)
-            It's a composition-based architecture pattern,
-            encouraging automated test writers to write more
-            maintainable test suites. It allows test writers to
-            use Gherkin-style language in Python to create
-            descriptive UI tests.
+            Not a literal microphone, but it's a helpful metaphor.
 
                               AUDIENCE
-                              (reluctantly)
-            Ignoring how you avoided answering my first questions,
-            how do I get started?
+                              (hushed)
+            That's not as helpful as you think it is, when your
+            voice is in my head. I'm leaving now.
 
                               NARRATOR (V.O.)
-            I thought you'd never ask...
+            Let's turn left outside the door...
 
                                                                       FADE OUT
 ```
@@ -40,16 +38,16 @@ as a dulcet voice begins to speak.
 
 Installation
 ------------
-    pip install screenpy_selenium
+    pip install screenpy_adapter_allure
 
 or
 
-    pip install screenpy[selenium]
+    pip install screenpy[allure]
 
 
 Documentation
 ----------
-Please check out the [Read The Docs documentation](https://screenpy-selenium-docs.readthedocs.io/en/latest/) for the latest information about this module!
+Please check out the [Read The Docs documentation](https://screenpy-adapter-allure-docs.readthedocs.io/en/latest/) for the latest information about this module!
 
 You can also read the [ScreenPy Docs](https://screenpy-docs.readthedocs.io/en/latest/) for more information about ScreenPy in general.
 
