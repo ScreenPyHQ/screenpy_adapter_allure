@@ -3,7 +3,7 @@ from os import path
 from setuptools import find_packages, setup
 
 requires = [
-    "screenpy>=4.0.0b1,<4.1",
+    "screenpy>=4.0.0,<4.1",
     "allure-pytest>=2.9.0,<2.10",
 ]
 

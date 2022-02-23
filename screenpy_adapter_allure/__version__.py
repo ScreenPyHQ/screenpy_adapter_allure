@@ -7,7 +7,7 @@ ScreenPy Adapter: Allure
 __title__ = "screenpy_adapter_allure"
 __description__ = "ScreenPy Adapter to log test steps to Allure."
 __url__ = "https://github.com/ScreenPyHQ/screenpy_adapter_allure"
-__version__ = "4.0.0"
+__version__ = "4.0.1"
 __author__ = "Perry Goy"
 __author_email__ = "perry.goy@gmail.com"
 __license__ = "MIT"
