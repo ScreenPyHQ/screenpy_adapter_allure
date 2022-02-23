@@ -8,7 +8,7 @@ In honor of 2sday, how about 2 deploys?
 
 ### Bugfixes
 
-- Fix some issues with dependencies (hopefully), so installing via `screenpy[selenium]` works.
+- Fix some issues with dependencies (hopefully), so installing via `screenpy[allure]` works.
 
 
 4.0.0 (2022-02-22)
