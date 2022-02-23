@@ -2,7 +2,7 @@ ScreenPy
 ========
 ```
 TITLE CARD:
-                                  "ScreenPy"
+                               "ScreenPy Adapter: Allure"
 TITLE DISAPPEARS.
                                                                       FADE IN:
 INT. DOCUMENTATION - UNKNOWN TIME
