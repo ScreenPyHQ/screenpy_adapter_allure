@@ -1,8 +1,10 @@
-ScreenPy
-========
+========================
+ScreenPy Adapter: Allure
+========================
+
 ```
 TITLE CARD:
-                               "ScreenPy Adapter: Allure"
+                         "ScreenPy Adapter: Allure"
 TITLE DISAPPEARS.
                                                                       FADE IN:
 INT. DOCUMENTATION - UNKNOWN TIME
@@ -27,7 +29,13 @@ resumes their guidance.
                               AUDIENCE
                               (hushed)
             That's not as helpful as you think it is, when your
-            voice is in my head. I'm leaving now.
+            voice is in my head.
+
+A beat, as AUDIENCE looks appraisingly at the equipment.
+
+                              AUDIENCE (CONT'D)
+                              (hushed)
+            This looks complicated. I'm leaving now.
 
                               NARRATOR (V.O.)
             Let's turn left outside the door...
