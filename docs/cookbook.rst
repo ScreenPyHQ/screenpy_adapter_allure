@@ -8,7 +8,7 @@ Plugging In the Adapter
 Plugging the ``AllureAdapter``
 into the :external+screenpy:ref:`Narrator`'s microphone
 must be done during test setup.
-This will be in your ``conf.py`` file for `pytest <https://docs.pytest.org/>`__,
+This will be in your ``conftest.py`` file for `pytest <https://docs.pytest.org/>`__,
 or during suite configuration for `unittest <https://docs.python.org/3/library/unittest.html>`__.
 
 Either way,
