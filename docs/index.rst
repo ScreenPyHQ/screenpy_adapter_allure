@@ -7,7 +7,7 @@ ScreenPy Adapter: Allure
 
 This Adapter enhances the reporting
 of your `ScreenPy <https://screenpy-docs.readthedocs.io/en/latest/>`__ tests
-by enabling Allure reporting for the :external+screenpy:ref:`Narrator`.
+by enabling Allure reporting for :external+screenpy:ref:`Narration`.
 Just plug the adapter
 into the Narrator's microphone
 and enjoy the vivid detail!
