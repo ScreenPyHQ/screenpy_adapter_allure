@@ -3,8 +3,8 @@ from os import path
 from setuptools import find_packages, setup
 
 requires = [
-    "screenpy>=4.0.0,<4.1",
-    "allure-pytest>=2.9.0,<2.10",
+    "screenpy>=4.0.0",
+    "allure-pytest>=2.9.0",
 ]
 
 repo_dir = path.abspath(path.dirname(__file__))
