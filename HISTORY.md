@@ -1,10 +1,19 @@
 Release History
 ===============
 
+4.0.2 (2023-15-02)
+------------------
+
+### Improvements
+
+- Open the top of the requirements restrictions to allow any version of ScreenPy greater than 4.0.
+
+
 4.0.1 (2022-02-22)
 ------------------
 
 In honor of 2sday, how about 2 deploys?
+
 
 ### Bugfixes
 
