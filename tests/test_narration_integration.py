@@ -4,7 +4,7 @@ from unittest import mock
 
 import pytest
 
-from screenpy.narration.narrator import NORMAL
+from screenpy.narration.gravitas import NORMAL
 from screenpy.narration.adapters.stdout_adapter import StdOutAdapter
 from screenpy.pacing import act, aside, beat, scene, the_narrator
 

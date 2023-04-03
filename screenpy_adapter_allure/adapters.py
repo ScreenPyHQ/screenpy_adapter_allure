@@ -11,7 +11,7 @@ from allure_commons.utils import now
 from allure_pytest.listener import AllureListener
 from allure_pytest.utils import get_status, get_status_details
 from screenpy.exceptions import UnableToNarrate
-from screenpy.narration import narrator
+from screenpy.narration.gravitas import AIRY, EXTREME, HEAVY, LIGHT, NORMAL
 
 
 class AllureAdapter:
@@ -20,11 +20,11 @@ class AllureAdapter:
     step_stack: List[StepContext]
 
     GRAVITAS = {
-        narrator.AIRY: allure.severity_level.TRIVIAL,
-        narrator.LIGHT: allure.severity_level.MINOR,
-        narrator.NORMAL: allure.severity_level.NORMAL,
-        narrator.HEAVY: allure.severity_level.CRITICAL,
-        narrator.EXTREME: allure.severity_level.BLOCKER,
+        AIRY: allure.severity_level.TRIVIAL,
+        LIGHT: allure.severity_level.MINOR,
+        NORMAL: allure.severity_level.NORMAL,
+        HEAVY: allure.severity_level.CRITICAL,
+        EXTREME: allure.severity_level.BLOCKER,
     }
 
     def __init__(self) -> None:
