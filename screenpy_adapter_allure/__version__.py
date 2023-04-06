@@ -3,12 +3,20 @@ ScreenPy Adapter: Allure
 """
 # (the ascii art would be too long for this one :( )
 
+try:
+    # importlib.metadata is present in Python 3.8 and later
+    import importlib.metadata as importlib_metadata  # type: ignore
+except ImportError:
+    # use the shim package importlib-metadata pre-3.8
+    import importlib_metadata  # type: ignore
 
-__title__ = "screenpy_adapter_allure"
-__description__ = "ScreenPy Adapter to log test steps to Allure."
-__url__ = "https://github.com/ScreenPyHQ/screenpy_adapter_allure"
-__version__ = "4.0.2"
-__author__ = "Perry Goy"
-__author_email__ = "perry.goy@gmail.com"
-__license__ = "MIT"
-__copyright__ = "Copyright (c) 2022-2023 Perry Goy"
+metadata = importlib_metadata.metadata("screenpy_adapter_allure")
+
+__title__ = metadata["Name"]
+__description__ = metadata["Summary"]
+__url__ = metadata["Home-page"]
+__version__ = metadata["Version"]
+__author__ = metadata["Author"]
+__author_email__ = metadata["Author-email"]
+__license__ = metadata["License"]
+__copyright__ = f"2019-2023 {__author__}"
