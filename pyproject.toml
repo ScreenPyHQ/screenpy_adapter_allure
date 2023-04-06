@@ -15,7 +15,7 @@ name = "screenpy_adapter_allure"
 version = "4.0.2"
 description = "An adapter for the microphone of ScreenPy's Narrator which sends logs to Allure."
 authors = ["Perry Goy <perry.goy@gmail.com>"]
-maintainers = ["Gabe Langton", "Marcel Wilson"]
+maintainers = ["Gabe Langton", "Marcel Wilson", "Sergio Orozco"]
 license = "MIT"
 repository = "https://github.com/ScreenPyHQ/screenpy_adapter_allure"
 documentation = "https://screenpy-adapter-allure-docs.readthedocs.io/"
@@ -46,8 +46,6 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-PyHamcrest = ">=2.0.0"
-typing-extensions = ">=4.1.1"
 importlib_metadata = {version = "*", python = "3.8.*"}
 screenpy = ">=4.0.2"
 allure-pytest = ">=2.13.1"
