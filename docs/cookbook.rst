@@ -6,15 +6,6 @@ This plugin is an adapter for the microphone of ScreenPy's Narrator which sends 
 
 This `example <https://github.com/ScreenPyHQ/screenpy_examples/tree/trunk/screenpy_selenium/github>`__ makes use of this plugin.
 
-Rationale
-=========
-
-Without this plugin when you generate a test report using allure it will display as follow
-
-.. image:: ./allure_without_plugin.png
-  :width: 768
-  :alt: Screenshot without plugin has not the steps
-
 Plugging In the Adapter
 =======================
 
@@ -35,16 +26,16 @@ wherever you need to do them::
 
 After that the steps are attached to the allure report
 
-.. image:: ./allure_with_plugin.png
+.. image:: ./images/allure_with_plugin.png
   :width: 768
   :alt: Screenshot without plugin has not the steps
 
-Attach Screenshot from selenium
+Attach Screenshot from Selenium
 ===============================
 
-If you are using allure in a selenium project using `ScreenpPy Selenium <https://screenpy-selenium-docs.readthedocs.io/en/latest/>`__
+If you are using allure in a Selenium project using :external+screenpy_selenium:doc:`ScreenPy Selenium <index>`
 
-You can attach a new screenshot to the report using the action `SaveScreenshot <https://screenpy-selenium-docs.readthedocs.io/en/latest/extended_api/actions.html#screenpy_selenium.actions.SaveScreenshot>`__
+You can attach a new screenshot to the report using the action :external+screenpy_selenium:class:`~screenpy_selenium.actions.SaveScreenshot`
 
 For example you can attach an screenshot as PNG::
 
@@ -61,8 +52,10 @@ For example you can attach an screenshot as PNG::
         ),
     )
 
-In the github example we go to the github page and find the `screenpy_examples` repository
+In the `github example <https://github.com/ScreenPyHQ/screenpy_examples/blob/trunk/screenpy_selenium/github/features/test_github_search.py#L44-L54>`__,
+we go to the github page
+and find the ``screenpy_examples`` repository
 
-.. image:: ./allure_screenshot.png
+.. image:: ./images/allure_screenshot.png
   :width: 768
   :alt: Allure report showing the screenshot from the Github example
