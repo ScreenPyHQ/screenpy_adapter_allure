@@ -17,7 +17,7 @@ import sys
 sys.path.insert(0, os.path.abspath("./ext"))
 sys.path.insert(0, os.path.abspath("../"))
 
-from screenpy_adapter_allure.__version__ import __version__  # noqa: need the path first
+from screenpy_adapter_allure.__version__ import __version__,  __author__, __copyright__  # noqa: need the path first
 
 autodoc_mock_imports = ["screenpy", "allure", "allure_commons", "allure_pytest"]
 
@@ -25,8 +25,8 @@ autodoc_mock_imports = ["screenpy", "allure", "allure_commons", "allure_pytest"]
 # -- Project information -----------------------------------------------------
 
 project = 'screenpy_adapter_allure'
-copyright = '2022-2023, Perry Goy'
-author = 'Perry Goy'
+copyright = __copyright__
+author = __author__
 
 # The full version, including alpha/beta/rc tags
 release = __version__
