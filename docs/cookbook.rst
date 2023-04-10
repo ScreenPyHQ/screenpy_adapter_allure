@@ -33,28 +33,34 @@ After that the steps are attached to the allure report
 Attach Screenshot from Selenium
 ===============================
 
-If you are using allure in a Selenium project using :external+screenpy_selenium:doc:`ScreenPy Selenium <index>`
+If you are using allure in a Selenium project using :external+screenpy_selenium:doc:`ScreenPy Selenium <index>`,
+you can attach a new screenshot to the report
+using :external+screenpy_selenium:class:`~screenpy_selenium.actions.SaveScreenshot`.
 
-You can attach a new screenshot to the report using the action :external+screenpy_selenium:class:`~screenpy_selenium.actions.SaveScreenshot`
+For example,
+you can attach a screenshot as a PNG::
 
-For example you can attach an screenshot as PNG::
-
-    from screenpy import Actor
+    from screenpy import Actor, Visit
     from allure_commons.types import AttachmentType
 
     filepath = 'screenshot.png'
-
     the_actor = Actor.named("Perry").who_can(BrowseTheWeb.using_firefox())
+    docs_url = (
+        "https://screenpy-adapter-allure-docs.readthedocs.io/en/latest/cookbook.html"
+    )
 
     the_actor.attempts_to(
+        Visit(docs_url),
         SaveScreenshot.as_(filepath).and_attach_it_with(
             attachment_type=AttachmentTypes.PNG,
         ),
     )
 
-In the `github example <https://github.com/ScreenPyHQ/screenpy_examples/blob/trunk/screenpy_selenium/github/features/test_github_search.py#L44-L54>`__,
-we go to the github page
-and find the ``screenpy_examples`` repository
+Here is a screenshot of the report from
+the `github example <https://github.com/ScreenPyHQ/screenpy_examples/blob/trunk/screenpy_selenium/github/features/test_github_search.py#L44-L54>`__.
+In that example,
+we go to GitHub's search page
+and find the ``screenpy_examples`` repository.
 
 .. image:: ./images/allure_screenshot.png
   :width: 768
