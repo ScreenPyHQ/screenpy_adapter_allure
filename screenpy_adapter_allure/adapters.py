@@ -59,9 +59,13 @@ class AllureAdapter:
             func = allure.severity(self.GRAVITAS[gravitas])(func)
         yield func
 
-    def beat(self, func: Callable, line: str) -> Generator:
+    def beat(
+        self, func: Callable, line: str, gravitas: Optional[str] = None
+    ) -> Generator:
         """Encapsulate the beat within Allure's step context."""
         allure_step = allure.step(line)
+        if gravitas is not None:
+            func = allure.severity(self.GRAVITAS[gravitas])(func)
         try:
             with allure_step:
                 self.step_stack.append(allure_step)
@@ -73,8 +77,12 @@ class AllureAdapter:
                 # ... but if it's a different KeyError, we want to reraise.
                 raise
 
-    def aside(self, func: Callable, line: str) -> Generator:
+    def aside(
+        self, func: Callable, line: str, gravitas: Optional[str] = None
+    ) -> Generator:
         """Encapsulate the aside within Allure's step context."""
+        if gravitas is not None:
+            func = allure.severity(self.GRAVITAS[gravitas])(func)
         with allure.step(line):
             yield func
 

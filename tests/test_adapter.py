@@ -40,14 +40,18 @@ class TestAllureAdapter:
         mocked_allure.feature.assert_called_once_with(scene_name)
         mocked_allure.severity.assert_called_once_with(allure_level)
 
-    def test_beat(self, mocked_allure):
+    @pytest.mark.parametrize(
+        "narrator_level,allure_level", AllureAdapter.GRAVITAS.items()
+    )
+    def test_beat(self, mocked_allure, narrator_level, allure_level):
         adapter = AllureAdapter()
         beat_message = "test beat"
-        test_func = adapter.beat(prop, beat_message)
+        test_func = adapter.beat(prop, beat_message, narrator_level)
 
         next(test_func)()
 
         mocked_allure.step.assert_called_once_with(beat_message)
+        mocked_allure.severity.assert_called_once_with(allure_level)
 
     def test_embedded_beat_allure_message(self, mocked_allure):
         """Context deepens with the embedded beats."""
@@ -72,14 +76,18 @@ class TestAllureAdapter:
         assert calls[7][0] == "().__exit__"
         assert calls[8][0] == "().__exit__"
 
-    def test_aside(self, mocked_allure):
+    @pytest.mark.parametrize(
+        "narrator_level,allure_level", AllureAdapter.GRAVITAS.items()
+    )
+    def test_aside(self, mocked_allure, narrator_level, allure_level):
         adapter = AllureAdapter()
         aside_message = "test aside"
-        test_func = adapter.aside(prop, aside_message)
+        test_func = adapter.aside(prop, aside_message, narrator_level)
 
         next(test_func)()
 
         mocked_allure.step.assert_called_once_with(aside_message)
+        mocked_allure.severity.assert_called_once_with(allure_level)
 
     def test_error(self, mocked_manager, mock_allure_trappings):
         adapter = AllureAdapter()
