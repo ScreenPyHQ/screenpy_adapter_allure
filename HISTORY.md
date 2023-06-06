@@ -1,6 +1,14 @@
 Release History
 ===============
 
+4.0.4 (2023-06-06)
+------------------
+
+### Bug Fixes
+
+- Added handling for `gravitas` to `beat` and `asides` after ScreenPy update.
+
+
 4.0.3 (2023-04-07)
 ------------------
 

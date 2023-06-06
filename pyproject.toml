@@ -12,7 +12,7 @@ target-version = ['py311']
 
 [tool.poetry]
 name = "screenpy_adapter_allure"
-version = "4.0.3"
+version = "4.0.4"
 description = "An adapter for the microphone of ScreenPy's Narrator which sends logs to Allure."
 authors = ["Perry Goy <perry.goy@gmail.com>"]
 maintainers = ["Gabe Langton", "Marcel Wilson", "Sergio Orozco"]
