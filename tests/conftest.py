@@ -5,7 +5,6 @@ from unittest import mock
 import pytest
 from allure_pytest.listener import AllureListener
 
-
 AllureTrappings = namedtuple("AllureTrappings", "manager listener logger")
 
 

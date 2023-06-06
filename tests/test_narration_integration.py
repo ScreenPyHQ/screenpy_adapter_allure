@@ -3,13 +3,11 @@ from itertools import permutations
 from unittest import mock
 
 import pytest
-
 from screenpy.narration.gravitas import NORMAL
-from screenpy.narration.adapters.stdout_adapter import StdOutAdapter
+from screenpy.narration.stdout_adapter import StdOutAdapter
 from screenpy.pacing import act, aside, beat, scene, the_narrator
 
 from screenpy_adapter_allure import AllureAdapter
-
 
 TEST_ACT = "Three"
 TEST_SCENE = "The Scene Where He Uses It"
@@ -73,7 +71,6 @@ class TestNarrateToAllure:
         the_narrator.adapters = old_adapters
 
     def test_narrations(self, mocked_allure):
-
         # We need to create this in here, so it uses the mocked allure
         @act(TEST_ACT, gravitas=NORMAL)
         @scene(TEST_SCENE)
@@ -86,7 +83,6 @@ class TestNarrateToAllure:
         _assert_allure_correct(mocked_allure)
 
     def test_flushed_narrations(self, mocked_allure):
-
         # We need to create this in here, so it uses the mocked allure
         @act(TEST_ACT, gravitas=NORMAL)
         @scene(TEST_SCENE)

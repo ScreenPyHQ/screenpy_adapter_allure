@@ -1,7 +1,6 @@
 from unittest import mock
 
 import pytest
-
 from screenpy.exceptions import UnableToNarrate
 
 from screenpy_adapter_allure import AllureAdapter
