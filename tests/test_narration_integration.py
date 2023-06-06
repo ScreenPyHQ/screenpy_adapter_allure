@@ -4,7 +4,7 @@ from unittest import mock
 
 import pytest
 from screenpy.narration.gravitas import NORMAL
-from screenpy.narration.stdout_adapter import StdOutAdapter
+from screenpy.narration.stdout_adapter import StdOutAdapter, settings
 from screenpy.pacing import act, aside, beat, scene, the_narrator
 
 from screenpy_adapter_allure import AllureAdapter
@@ -14,7 +14,7 @@ TEST_SCENE = "The Scene Where He Uses It"
 TEST_BEAT = "Don't make me use this!"
 TEST_ASIDE = "You made me use it!!"
 TEST_RETVAL = ">:("
-INDENT = StdOutAdapter().manager.whitespace
+INDENT = settings.INDENT_CHAR * settings.INDENT_SIZE
 
 
 @act(TEST_ACT, gravitas=NORMAL)
