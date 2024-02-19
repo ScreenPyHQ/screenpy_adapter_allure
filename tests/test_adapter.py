@@ -99,7 +99,9 @@ class TestAllureAdapter:
         mocked_allure.severity.assert_called_once_with(allure_level)
 
     def test_error(
-        self, mocked_manager: mock.Mock, mock_allure_trappings: AllureTrappings
+        self,
+        mocked_manager: mock.Mock,  # noqa: ARG002
+        mock_allure_trappings: AllureTrappings,
     ) -> None:
         adapter = AllureAdapter()
         mocked_logger = mock_allure_trappings.logger
@@ -128,7 +130,7 @@ class TestAllureAdapter:
         )
 
     def test_attach_raises_if_no_attachment_type(
-        self, mocked_allure: mock.Mock
+        self, mocked_allure: mock.Mock  # noqa: ARG002
     ) -> None:
         adapter = AllureAdapter()
 
