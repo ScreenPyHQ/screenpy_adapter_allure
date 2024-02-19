@@ -8,7 +8,7 @@ INT. SITEPACKAGES DIRECTORY.
 ScreenPy Adapter: Allure adds an Adapter for the Narrator's microphone, which
 will send output to an Allure report.
 
-:copyright: (c) 2022-2023, Perry Goy.
+:copyright: (c) 2022-2024, Perry Goy.
 :license: MIT, see LICENSE for more details.
 """
 
