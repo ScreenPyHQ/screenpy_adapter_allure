@@ -2,17 +2,19 @@ from __future__ import annotations
 
 import logging
 from itertools import permutations
-from typing import Any, Generator
+from typing import TYPE_CHECKING, Any, Generator
 from unittest import mock
 
 import pytest
-from _pytest.fixtures import SubRequest
-from screenpy import Narrator
 from screenpy.narration.gravitas import NORMAL
 from screenpy.narration.stdout_adapter import StdOutAdapter, settings
 from screenpy.pacing import act, aside, beat, scene, the_narrator
 
 from screenpy_adapter_allure import AllureAdapter
+
+if TYPE_CHECKING:
+    from _pytest.fixtures import SubRequest
+    from screenpy import Narrator
 
 TEST_ACT = "Three"
 TEST_SCENE = "The Scene Where He Uses It"

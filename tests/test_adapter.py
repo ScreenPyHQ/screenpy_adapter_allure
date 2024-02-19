@@ -1,13 +1,17 @@
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
 from unittest import mock
 
 import pytest
-from allure_commons.types import Severity
 from screenpy.exceptions import UnableToNarrate
 
 from screenpy_adapter_allure import AllureAdapter
-from tests.conftest import AllureTrappings
+
+if TYPE_CHECKING:
+    from allure_commons.types import Severity
+
+    from tests.conftest import AllureTrappings
 
 
 def prop() -> None:

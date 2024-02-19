@@ -2,16 +2,18 @@
 
 from __future__ import annotations
 
-from typing import Any, Callable, Generator, List, Optional
+from typing import TYPE_CHECKING, Any, Callable, Generator, List, Optional
 
 import allure
-from allure_commons._allure import StepContext
 from allure_commons._core import plugin_manager
 from allure_commons.utils import now
 from allure_pytest.listener import AllureListener
 from allure_pytest.utils import get_status, get_status_details
 from screenpy.exceptions import UnableToNarrate
 from screenpy.narration.gravitas import AIRY, EXTREME, HEAVY, LIGHT, NORMAL
+
+if TYPE_CHECKING:
+    from allure_commons._allure import StepContext
 
 
 class AllureAdapter:
