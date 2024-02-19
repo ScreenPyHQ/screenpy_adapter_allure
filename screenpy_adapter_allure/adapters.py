@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Callable, ClassVar, Generator, List, Optional
+from typing import TYPE_CHECKING, Any, Callable, ClassVar, Generator
 
 import allure
 from allure_commons._core import plugin_manager
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 class AllureAdapter:
     """Adapt the Narrator's microphone to allow narration to Allure."""
 
-    step_stack: List[StepContext]
+    step_stack: list[StepContext]
 
     GRAVITAS: ClassVar[dict] = {
         AIRY: allure.severity_level.TRIVIAL,
@@ -44,7 +44,7 @@ class AllureAdapter:
         return plugin
 
     def act(
-        self, func: Callable, line: str, gravitas: Optional[str] = None
+        self, func: Callable, line: str, gravitas: str | None = None
     ) -> Generator:
         """Decorate the act with Allure's epic and severity decorators."""
         func = allure.epic(line)(func)
@@ -53,7 +53,7 @@ class AllureAdapter:
         yield func
 
     def scene(
-        self, func: Callable, line: str, gravitas: Optional[str] = None
+        self, func: Callable, line: str, gravitas: str | None = None
     ) -> Generator:
         """Decorate the scene with Allure's feature and severity decorators."""
         func = allure.feature(line)(func)
@@ -62,7 +62,7 @@ class AllureAdapter:
         yield func
 
     def beat(
-        self, func: Callable, line: str, gravitas: Optional[str] = None
+        self, func: Callable, line: str, gravitas: str | None = None
     ) -> Generator:
         """Encapsulate the beat within Allure's step context."""
         allure_step = allure.step(line)
@@ -80,7 +80,7 @@ class AllureAdapter:
                 raise
 
     def aside(
-        self, func: Callable, line: str, gravitas: Optional[str] = None
+        self, func: Callable, line: str, gravitas: str | None = None
     ) -> Generator:
         """Encapsulate the aside within Allure's step context."""
         if gravitas is not None:
