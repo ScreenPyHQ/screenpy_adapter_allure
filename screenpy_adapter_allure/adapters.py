@@ -1,5 +1,6 @@
 """Applies Allure's decorators and contexts to the Narrator's narration."""
 
+from __future__ import annotations
 from typing import Any, Callable, Generator, List, Optional
 
 import allure
