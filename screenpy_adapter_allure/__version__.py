@@ -1,6 +1,7 @@
 """
 ScreenPy Adapter: Allure
 """
+
 # (the ascii art would be too long for this one :( )
 
 try:

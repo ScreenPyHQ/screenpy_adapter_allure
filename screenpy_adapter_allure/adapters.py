@@ -105,7 +105,7 @@ class AllureAdapter:
             statusDetails=get_status_details(type(exc), exc, exc.__traceback__),
         )
 
-    def attach(self, filepath: str, **kwargs: Any) -> None:
+    def attach(self, filepath: str, **kwargs: Any) -> None:  # noqa: ANN401
         """Attach a file to the Allure report."""
         attachment_type = kwargs.get("attachment_type")
         name = kwargs.get("name")

@@ -1,12 +1,14 @@
 from unittest import mock
 
+from allure_commons.types import Severity
 import pytest
 from screenpy.exceptions import UnableToNarrate
 
 from screenpy_adapter_allure import AllureAdapter
+from tests.conftest import AllureTrappings
 
 
-def prop():
+def prop() -> None:
     """The revolver in the foyer!"""
     pass
 
@@ -16,7 +18,9 @@ class TestAllureAdapter:
     @pytest.mark.parametrize(
         "narrator_level,allure_level", AllureAdapter.GRAVITAS.items()
     )
-    def test_act(self, mocked_allure, narrator_level, allure_level):
+    def test_act(
+        self, mocked_allure: mock.Mock, narrator_level: Severity, allure_level: Severity
+    ) -> None:
         adapter = AllureAdapter()
         act_name = "test act"
         test_func = adapter.act(prop, act_name, narrator_level)
@@ -29,7 +33,9 @@ class TestAllureAdapter:
     @pytest.mark.parametrize(
         "narrator_level,allure_level", AllureAdapter.GRAVITAS.items()
     )
-    def test_scene(self, mocked_allure, narrator_level, allure_level):
+    def test_scene(
+        self, mocked_allure: mock.Mock, narrator_level: Severity, allure_level: Severity
+    ) -> None:
         adapter = AllureAdapter()
         scene_name = "test scene"
         test_func = adapter.scene(prop, scene_name, narrator_level)
@@ -42,7 +48,9 @@ class TestAllureAdapter:
     @pytest.mark.parametrize(
         "narrator_level,allure_level", AllureAdapter.GRAVITAS.items()
     )
-    def test_beat(self, mocked_allure, narrator_level, allure_level):
+    def test_beat(
+        self, mocked_allure: mock.Mock, narrator_level: Severity, allure_level: Severity
+    ) -> None:
         adapter = AllureAdapter()
         beat_message = "test beat"
         test_func = adapter.beat(prop, beat_message, narrator_level)
@@ -52,7 +60,7 @@ class TestAllureAdapter:
         mocked_allure.step.assert_called_once_with(beat_message)
         mocked_allure.severity.assert_called_once_with(allure_level)
 
-    def test_embedded_beat_allure_message(self, mocked_allure):
+    def test_embedded_beat_allure_message(self, mocked_allure: mock.Mock) -> None:
         """Context deepens with the embedded beats."""
         adapter = AllureAdapter()
 
@@ -78,7 +86,9 @@ class TestAllureAdapter:
     @pytest.mark.parametrize(
         "narrator_level,allure_level", AllureAdapter.GRAVITAS.items()
     )
-    def test_aside(self, mocked_allure, narrator_level, allure_level):
+    def test_aside(
+        self, mocked_allure: mock.Mock, narrator_level: Severity, allure_level: Severity
+    ) -> None:
         adapter = AllureAdapter()
         aside_message = "test aside"
         test_func = adapter.aside(prop, aside_message, narrator_level)
@@ -88,7 +98,9 @@ class TestAllureAdapter:
         mocked_allure.step.assert_called_once_with(aside_message)
         mocked_allure.severity.assert_called_once_with(allure_level)
 
-    def test_error(self, mocked_manager, mock_allure_trappings):
+    def test_error(
+        self, mocked_manager: mock.Mock, mock_allure_trappings: AllureTrappings
+    ) -> None:
         adapter = AllureAdapter()
         mocked_logger = mock_allure_trappings.logger
 
@@ -97,7 +109,7 @@ class TestAllureAdapter:
 
         mocked_logger.stop_step.assert_called_once()
 
-    def test_attach(self, mocked_allure):
+    def test_attach(self, mocked_allure: mock.Mock) -> None:
         adapter = AllureAdapter()
         test_path = "ddouglas/documents/freak_out.png"
         test_name = "Dexter Douglas"
@@ -115,7 +127,9 @@ class TestAllureAdapter:
             test_path, test_name, test_attachment_type, test_extension
         )
 
-    def test_attach_raises_if_no_attachment_type(self, mocked_allure):
+    def test_attach_raises_if_no_attachment_type(
+        self, mocked_allure: mock.Mock
+    ) -> None:
         adapter = AllureAdapter()
 
         with pytest.raises(UnableToNarrate):
