@@ -16,7 +16,6 @@ if TYPE_CHECKING:
 
 def prop() -> None:
     """The revolver in the foyer!"""
-    pass
 
 
 @mock.patch("screenpy_adapter_allure.adapters.allure")
