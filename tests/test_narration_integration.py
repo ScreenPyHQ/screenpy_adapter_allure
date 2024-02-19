@@ -1,11 +1,12 @@
 from __future__ import annotations
+
 import logging
 from itertools import permutations
-from typing import Generator, Any
+from typing import Any, Generator
 from unittest import mock
 
-from _pytest.fixtures import SubRequest
 import pytest
+from _pytest.fixtures import SubRequest
 from screenpy import Narrator
 from screenpy.narration.gravitas import NORMAL
 from screenpy.narration.stdout_adapter import StdOutAdapter, settings

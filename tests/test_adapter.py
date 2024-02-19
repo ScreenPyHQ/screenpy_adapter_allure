@@ -1,8 +1,9 @@
 from __future__ import annotations
+
 from unittest import mock
 
-from allure_commons.types import Severity
 import pytest
+from allure_commons.types import Severity
 from screenpy.exceptions import UnableToNarrate
 
 from screenpy_adapter_allure import AllureAdapter
