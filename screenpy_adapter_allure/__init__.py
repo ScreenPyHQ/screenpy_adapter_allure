@@ -12,7 +12,6 @@ will send output to an Allure report.
 :license: MIT, see LICENSE for more details.
 """
 
-
 from .adapters import AllureAdapter
 
 __all__ = [

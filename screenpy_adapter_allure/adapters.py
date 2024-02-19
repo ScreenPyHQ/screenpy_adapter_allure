@@ -43,9 +43,7 @@ class AllureAdapter:
 
         return plugin
 
-    def act(
-        self, func: Callable, line: str, gravitas: str | None = None
-    ) -> Generator:
+    def act(self, func: Callable, line: str, gravitas: str | None = None) -> Generator:
         """Decorate the act with Allure's epic and severity decorators."""
         func = allure.epic(line)(func)
         if gravitas:
@@ -61,9 +59,7 @@ class AllureAdapter:
             func = allure.severity(self.GRAVITAS[gravitas])(func)
         yield func
 
-    def beat(
-        self, func: Callable, line: str, gravitas: str | None = None
-    ) -> Generator:
+    def beat(self, func: Callable, line: str, gravitas: str | None = None) -> Generator:
         """Encapsulate the beat within Allure's step context."""
         allure_step = allure.step(line)
         if gravitas is not None:
