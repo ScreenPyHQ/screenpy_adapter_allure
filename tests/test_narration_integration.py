@@ -45,7 +45,7 @@ def _assert_allure_correct(mocked_allure: mock.Mock) -> None:
     assert step_calls[2][1][0] == TEST_ASIDE
     assert step_calls[3][0] == "().__enter__"
     assert step_calls[4][0] == "().__exit__"
-    assert step_calls[5][1][0] == f"=> {TEST_RETVAL}"
+    assert step_calls[5][1][0] == f"=> {TEST_RETVAL!r}"
     assert step_calls[6][0] == "().__enter__"
     assert step_calls[7][0] == "().__exit__"
     assert step_calls[8][0] == "().__exit__"
@@ -61,7 +61,7 @@ def _assert_stdout_correct(caplog: pytest.LogCaptureFixture) -> None:
     assert caplog.messages[1] == f"Scene: {TEST_SCENE.title()}"
     assert caplog.messages[2] == TEST_BEAT
     assert caplog.messages[3] == f"{INDENT}{TEST_ASIDE}"
-    assert caplog.messages[4] == f"{INDENT}=> {TEST_RETVAL}"
+    assert caplog.messages[4] == f"{INDENT}=> {TEST_RETVAL!r}"
 
 
 @mock.patch("screenpy_adapter_allure.adapters.allure")
