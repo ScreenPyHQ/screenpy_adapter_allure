@@ -1,3 +1,4 @@
+"""Install screenpy adapter: allure."""
 from os import path
 
 from setuptools import find_packages, setup

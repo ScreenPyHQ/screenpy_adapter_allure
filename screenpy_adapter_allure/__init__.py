@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
 """
-                            ScreenPy Adapter: Allure
+                            ScreenPy Adapter: Allure.
+
                                                                       FADE IN:
-INT. SITEPACKAGES DIRECTORY
+
+INT. SITEPACKAGES DIRECTORY.
 
 ScreenPy Adapter: Allure adds an Adapter for the Narrator's microphone, which
 will send output to an Allure report.

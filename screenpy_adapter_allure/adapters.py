@@ -1,6 +1,4 @@
-"""
-Applies Allure's decorators and contexts to the Narrator's narration.
-"""
+"""Applies Allure's decorators and contexts to the Narrator's narration."""
 
 from typing import Any, Callable, Generator, List, Optional
 
