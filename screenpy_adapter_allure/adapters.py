@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Callable, Generator, List, Optional
+from typing import TYPE_CHECKING, Any, Callable, ClassVar, Generator, List, Optional
 
 import allure
 from allure_commons._core import plugin_manager
@@ -21,7 +21,7 @@ class AllureAdapter:
 
     step_stack: List[StepContext]
 
-    GRAVITAS = {
+    GRAVITAS: ClassVar[dict] = {
         AIRY: allure.severity_level.TRIVIAL,
         LIGHT: allure.severity_level.MINOR,
         NORMAL: allure.severity_level.NORMAL,
