@@ -51,37 +51,42 @@ screenpy = ">=4.0.2"
 allure-pytest = ">=2.13.1"
 
 # convenience packages for development of screenpy only
+black = {version = "*", optional = true}
+coverage = {version = "*", optional = true}
+cruft = {version = "*", optional = true}
+mypy = {version = "*", optional = true}
 pre-commit = {version = "*", optional = true}
 pytest = {version = "*", optional = true}
+pytest-mock = {version = "*", optional = true}
+ruff = {version = ">=0.2.0", optional = true}
+sphinx = {version = "*", optional = true}
+sphinx-rtd-theme = {version = "*", optional = true}
 tox = {version = "*", optional = true}
-mypy = {version = "*", optional = true}
-black = {version = "*", optional = true}
-isort = {version = "*", optional = true}
-flake8 = {version = "*", optional = true}
-pylint = {version = "*", optional = true}
-coverage = {version = "*", optional = true}
 
 [tool.poetry.extras]
 dev = [
-    "pre-commit",
-    "pytest",
-    "tox",
-    "pylint",
-]
-dev_all = [
-    "pre-commit",
-    "pytest",
-    "tox",
-    "pylint",
-    "mypy",
+    "autodoc-pydantic",
     "black",
-    "isort",
-    "flake8",
     "coverage",
+    "cruft",
+    "mypy",
+    "pre-commit",
+    "pytest",
+    "pytest-mock",
+    "ruff",
+    "sphinx",
+    "sphinx-rtd-theme",
+    "tox",
 ]
 test = [
-    "pytest",
     "coverage",
+    "pytest",
+    "pytest-mock",
+]
+docs = [
+    "autodoc-pydantic",
+    "sphinx",
+    "sphinx-rtd-theme",
 ]
 
 [build-system]
