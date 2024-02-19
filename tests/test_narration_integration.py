@@ -148,10 +148,9 @@ class TestNarrateToAll:
         def allure_prop() -> None:
             pass
 
-        with caplog.at_level(logging.INFO):
-            with the_narrator.mic_cable_kinked():
-                allure_prop()
-                Prop().use()
+        with caplog.at_level(logging.INFO), the_narrator.mic_cable_kinked():
+            allure_prop()
+            Prop().use()
 
         _assert_allure_correct(mocked_allure)
         _assert_stdout_correct(caplog)
