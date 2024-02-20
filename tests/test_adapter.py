@@ -104,7 +104,7 @@ class TestAllureAdapter:
 
     def test_error(
         self,
-        mocked_manager: mock.Mock,  # noqa: ARG002
+        mocked_allure: mock.Mock,  # noqa: ARG002
         mock_allure_trappings: AllureTrappings,
     ) -> None:
         adapter = AllureAdapter()
