@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from collections import namedtuple
 from typing import Generator
 from unittest import mock
@@ -8,7 +10,7 @@ from allure_pytest.listener import AllureListener
 AllureTrappings = namedtuple("AllureTrappings", "manager listener logger")
 
 
-@pytest.fixture(autouse=True, scope="function")
+@pytest.fixture(autouse=True)
 def mock_allure_trappings() -> Generator:
     """Mock the Allure magic we're doing in the AllureAdapter."""
     plugin_manager_path = "screenpy_adapter_allure.adapters.plugin_manager"

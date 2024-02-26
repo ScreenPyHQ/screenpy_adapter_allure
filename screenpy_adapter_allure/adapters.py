@@ -1,11 +1,10 @@
-"""
-Applies Allure's decorators and contexts to the Narrator's narration.
-"""
+"""Applies Allure's decorators and contexts to the Narrator's narration."""
 
-from typing import Any, Callable, Generator, List, Optional
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Any, Callable, ClassVar, Generator
 
 import allure
-from allure_commons._allure import StepContext
 from allure_commons._core import plugin_manager
 from allure_commons.utils import now
 from allure_pytest.listener import AllureListener
@@ -13,13 +12,16 @@ from allure_pytest.utils import get_status, get_status_details
 from screenpy.exceptions import UnableToNarrate
 from screenpy.narration.gravitas import AIRY, EXTREME, HEAVY, LIGHT, NORMAL
 
+if TYPE_CHECKING:
+    from allure_commons._allure import StepContext
+
 
 class AllureAdapter:
     """Adapt the Narrator's microphone to allow narration to Allure."""
 
-    step_stack: List[StepContext]
+    step_stack: list[StepContext]
 
-    GRAVITAS = {
+    GRAVITAS: ClassVar[dict] = {
         AIRY: allure.severity_level.TRIVIAL,
         LIGHT: allure.severity_level.MINOR,
         NORMAL: allure.severity_level.NORMAL,
@@ -41,9 +43,7 @@ class AllureAdapter:
 
         return plugin
 
-    def act(
-        self, func: Callable, line: str, gravitas: Optional[str] = None
-    ) -> Generator:
+    def act(self, func: Callable, line: str, gravitas: str | None = None) -> Generator:
         """Decorate the act with Allure's epic and severity decorators."""
         func = allure.epic(line)(func)
         if gravitas:
@@ -51,7 +51,7 @@ class AllureAdapter:
         yield func
 
     def scene(
-        self, func: Callable, line: str, gravitas: Optional[str] = None
+        self, func: Callable, line: str, gravitas: str | None = None
     ) -> Generator:
         """Decorate the scene with Allure's feature and severity decorators."""
         func = allure.feature(line)(func)
@@ -59,9 +59,7 @@ class AllureAdapter:
             func = allure.severity(self.GRAVITAS[gravitas])(func)
         yield func
 
-    def beat(
-        self, func: Callable, line: str, gravitas: Optional[str] = None
-    ) -> Generator:
+    def beat(self, func: Callable, line: str, gravitas: str | None = None) -> Generator:
         """Encapsulate the beat within Allure's step context."""
         allure_step = allure.step(line)
         if gravitas is not None:
@@ -78,7 +76,7 @@ class AllureAdapter:
                 raise
 
     def aside(
-        self, func: Callable, line: str, gravitas: Optional[str] = None
+        self, func: Callable, line: str, gravitas: str | None = None
     ) -> Generator:
         """Encapsulate the aside within Allure's step context."""
         if gravitas is not None:
@@ -105,14 +103,15 @@ class AllureAdapter:
             statusDetails=get_status_details(type(exc), exc, exc.__traceback__),
         )
 
-    def attach(self, filepath: str, **kwargs: Any) -> None:
+    def attach(self, filepath: str, **kwargs: Any) -> None:  # noqa: ANN401
         """Attach a file to the Allure report."""
         attachment_type = kwargs.get("attachment_type")
         name = kwargs.get("name")
         extension = kwargs.get("extension")
         if attachment_type is None:
-            raise UnableToNarrate(
+            msg = (
                 "AllureAdapter requires an attachment type to attach."
                 " See https://docs.qameta.io/allure/#_attachments_5"
             )
+            raise UnableToNarrate(msg)
         allure.attach.file(filepath, name, attachment_type, extension)
