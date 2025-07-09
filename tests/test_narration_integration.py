@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import logging
 from itertools import permutations
-from typing import TYPE_CHECKING, Any, Generator
+from typing import TYPE_CHECKING, Any
 from unittest import mock
 
 import pytest
@@ -13,6 +13,8 @@ from screenpy.pacing import act, aside, beat, scene, the_narrator
 from screenpy_adapter_allure import AllureAdapter
 
 if TYPE_CHECKING:
+    from collections.abc import Generator
+
     from _pytest.fixtures import SubRequest
     from screenpy import Narrator
 
@@ -106,7 +108,8 @@ class TestNarrateToAllure:
 @mock.patch("screenpy_adapter_allure.adapters.allure")
 class TestNarrateToAll:
     @pytest.fixture(
-        autouse=True, params=permutations([AllureAdapter(), StdOutAdapter()])
+        autouse=True,
+        params=permutations([AllureAdapter(), StdOutAdapter()]),
     )
     def narrator_has_all(self, request: SubRequest) -> Generator[Narrator, Any, None]:
         """Give Narrator all adapters in all orders."""
@@ -116,7 +119,9 @@ class TestNarrateToAll:
         the_narrator.adapters = old_adapters
 
     def test_narration(
-        self, mocked_allure: mock.Mock, caplog: pytest.LogCaptureFixture
+        self,
+        mocked_allure: mock.Mock,
+        caplog: pytest.LogCaptureFixture,
     ) -> None:
         mocked_allure.epic.return_value = lambda f: f
         mocked_allure.feature.return_value = lambda f: f
@@ -136,7 +141,9 @@ class TestNarrateToAll:
         _assert_stdout_correct(caplog)
 
     def test_flushed_narration(
-        self, mocked_allure: mock.Mock, caplog: pytest.LogCaptureFixture
+        self,
+        mocked_allure: mock.Mock,
+        caplog: pytest.LogCaptureFixture,
     ) -> None:
         mocked_allure.epic.return_value = lambda f: f
         mocked_allure.feature.return_value = lambda f: f

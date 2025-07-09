@@ -20,10 +20,14 @@ def prop() -> None:
 @mock.patch("screenpy_adapter_allure.adapters.allure")
 class TestAllureAdapter:
     @pytest.mark.parametrize(
-        ("narrator_level", "allure_level"), AllureAdapter.GRAVITAS.items()
+        ("narrator_level", "allure_level"),
+        AllureAdapter.GRAVITAS.items(),
     )
     def test_act(
-        self, mocked_allure: mock.Mock, narrator_level: str, allure_level: str
+        self,
+        mocked_allure: mock.Mock,
+        narrator_level: str,
+        allure_level: str,
     ) -> None:
         adapter = AllureAdapter()
         act_name = "test act"
@@ -35,10 +39,14 @@ class TestAllureAdapter:
         mocked_allure.severity.assert_called_once_with(allure_level)
 
     @pytest.mark.parametrize(
-        ("narrator_level", "allure_level"), AllureAdapter.GRAVITAS.items()
+        ("narrator_level", "allure_level"),
+        AllureAdapter.GRAVITAS.items(),
     )
     def test_scene(
-        self, mocked_allure: mock.Mock, narrator_level: str, allure_level: str
+        self,
+        mocked_allure: mock.Mock,
+        narrator_level: str,
+        allure_level: str,
     ) -> None:
         adapter = AllureAdapter()
         scene_name = "test scene"
@@ -50,10 +58,14 @@ class TestAllureAdapter:
         mocked_allure.severity.assert_called_once_with(allure_level)
 
     @pytest.mark.parametrize(
-        ("narrator_level", "allure_level"), AllureAdapter.GRAVITAS.items()
+        ("narrator_level", "allure_level"),
+        AllureAdapter.GRAVITAS.items(),
     )
     def test_beat(
-        self, mocked_allure: mock.Mock, narrator_level: str, allure_level: str
+        self,
+        mocked_allure: mock.Mock,
+        narrator_level: str,
+        allure_level: str,
     ) -> None:
         adapter = AllureAdapter()
         beat_message = "test beat"
@@ -88,10 +100,14 @@ class TestAllureAdapter:
         assert calls[8][0] == "().__exit__"
 
     @pytest.mark.parametrize(
-        ("narrator_level", "allure_level"), AllureAdapter.GRAVITAS.items()
+        ("narrator_level", "allure_level"),
+        AllureAdapter.GRAVITAS.items(),
     )
     def test_aside(
-        self, mocked_allure: mock.Mock, narrator_level: str, allure_level: str
+        self,
+        mocked_allure: mock.Mock,
+        narrator_level: str,
+        allure_level: str,
     ) -> None:
         adapter = AllureAdapter()
         aside_message = "test aside"
@@ -130,11 +146,15 @@ class TestAllureAdapter:
         )
 
         mocked_allure.attach.file.assert_called_once_with(
-            test_path, test_name, test_attachment_type, test_extension
+            test_path,
+            test_name,
+            test_attachment_type,
+            test_extension,
         )
 
     def test_attach_raises_if_no_attachment_type(
-        self, mocked_allure: mock.Mock  # noqa: ARG002
+        self,
+        mocked_allure: mock.Mock,  # noqa: ARG002
     ) -> None:
         adapter = AllureAdapter()
 

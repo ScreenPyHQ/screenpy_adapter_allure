@@ -1,13 +1,19 @@
 from __future__ import annotations
 
-from collections import namedtuple
-from typing import Generator
+from typing import TYPE_CHECKING, NamedTuple
 from unittest import mock
 
 import pytest
 from allure_pytest.listener import AllureListener
 
-AllureTrappings = namedtuple("AllureTrappings", "manager listener logger")
+if TYPE_CHECKING:
+    from collections.abc import Generator
+
+
+class AllureTrappings(NamedTuple):
+    manager: mock.Mock
+    listener: AllureListener
+    logger: mock.Mock
 
 
 @pytest.fixture(autouse=True)
