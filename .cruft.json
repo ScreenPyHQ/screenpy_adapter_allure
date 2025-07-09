@@ -1,0 +1,19 @@
+{
+  "template": "https://github.com/ScreenPyHQ/cookiecutter_screenpy",
+  "commit": "e05d534e60621340c40bdf98679791cbaf56d24b",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "screenpy_adapter_allure",
+      "readable_name": "ScreenPy Adapter: Allure",
+      "copyright_start": "2019",
+      "is_sub_package": true,
+      "author": "Perry Goy",
+      "author_email": "perry.goy@gmail.com",
+      "github_username": "ScreenPyHQ",
+      "_template": "https://github.com/ScreenPyHQ/cookiecutter_screenpy",
+      "_commit": "e05d534e60621340c40bdf98679791cbaf56d24b"
+    }
+  },
+  "directory": null
+}
