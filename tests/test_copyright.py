@@ -4,7 +4,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import pytest
-from screenpy import __doc__, __version__
+
+from screenpy_adapter_allure import __doc__, __version__
 
 
 class TestCopyrightYear:
