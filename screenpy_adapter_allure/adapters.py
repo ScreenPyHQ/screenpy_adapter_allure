@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Callable, ClassVar, Generator
+from typing import TYPE_CHECKING, Any, Callable, ClassVar
 
 import allure
 from allure_commons._core import plugin_manager
@@ -13,6 +13,8 @@ from screenpy.exceptions import UnableToNarrate
 from screenpy.narration.gravitas import AIRY, EXTREME, HEAVY, LIGHT, NORMAL
 
 if TYPE_CHECKING:
+    from collections.abc import Generator
+
     from allure_commons._allure import StepContext
 
 
@@ -51,7 +53,10 @@ class AllureAdapter:
         yield func
 
     def scene(
-        self, func: Callable, line: str, gravitas: str | None = None
+        self,
+        func: Callable,
+        line: str,
+        gravitas: str | None = None,
     ) -> Generator:
         """Decorate the scene with Allure's feature and severity decorators."""
         func = allure.feature(line)(func)
@@ -76,7 +81,10 @@ class AllureAdapter:
                 raise
 
     def aside(
-        self, func: Callable, line: str, gravitas: str | None = None
+        self,
+        func: Callable,
+        line: str,
+        gravitas: str | None = None,
     ) -> Generator:
         """Encapsulate the aside within Allure's step context."""
         if gravitas is not None:
