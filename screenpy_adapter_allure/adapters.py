@@ -14,6 +14,7 @@ from screenpy.narration.gravitas import AIRY, EXTREME, HEAVY, LIGHT, NORMAL
 
 if TYPE_CHECKING:
     from collections.abc import Generator
+    from pathlib import Path
 
     from allure_commons._allure import StepContext
 
@@ -111,7 +112,7 @@ class AllureAdapter:
             statusDetails=get_status_details(type(exc), exc, exc.__traceback__),
         )
 
-    def attach(self, filepath: str, **kwargs: Any) -> None:  # noqa: ANN401
+    def attach(self, filepath: Path | str, **kwargs: Any) -> None:  # noqa: ANN401
         """Attach a file to the Allure report."""
         attachment_type = kwargs.get("attachment_type")
         name = kwargs.get("name")
